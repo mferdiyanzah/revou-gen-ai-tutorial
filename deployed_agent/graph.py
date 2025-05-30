@@ -3,7 +3,7 @@ from langchain.chat_models import init_chat_model
 from langgraph.graph import MessagesState
 from langgraph.graph import StateGraph, START, END
 
-model = init_chat_model("gpt-4.1-mini", model_provider= "openai", stream=True)
+model = init_chat_model("gpt-4.1-mini", model_provider= "openai")
 
 # Node to invoke an LLM
 def call_llm(state: MessagesState):
@@ -14,5 +14,6 @@ graph = (
     StateGraph(MessagesState)
     .add_node("call_llm", call_llm)
     .add_edge(START, "call_llm")
+    .add_edge("call_llm", END)
     .compile(name = "simple agent")
 )
