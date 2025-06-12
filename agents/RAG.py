@@ -1,31 +1,35 @@
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_core.tools import tool
-from langchain_core.vectorstores import InMemoryVectorStore
-
-# Load large language model 
 from langchain.chat_models import init_chat_model
-from langchain_community.document_loaders import PyPDFLoader
-from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_core.vectorstores import InMemoryVectorStore
+from langchain_core.tools import tool
+from langgraph.graph import MessagesState, StateGraph
+from langchain_core.messages import SystemMessage
+from langgraph.prebuilt import ToolNode
 from langgraph.graph import END
 from langgraph.prebuilt import ToolNode, tools_condition
 
 
-llm = init_chat_model("gpt-4.1-nano", model_provider="openai")
+from dotenv import load_dotenv
+load_dotenv(override=True)
+
 embedding_model = HuggingFaceEmbeddings(model_name="intfloat/multilingual-e5-large-instruct")
 vector_store = InMemoryVectorStore(embedding_model)
+
 file_path = "./docs/Tentang Dexa Medica.pdf"
+
+from langchain_community.document_loaders import PyPDFLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 loader = PyPDFLoader(file_path)
 docs = loader.load()
-
-
 text_splitter = RecursiveCharacterTextSplitter(
     chunk_size=500, chunk_overlap=100
 )
 all_splits = text_splitter.split_documents(docs)
-
 vector_store.add_documents(all_splits)
 
+
+llm = init_chat_model("gpt-4.1-mini", model_provider="openai")
 @tool(response_format="content_and_artifact")
 def retrieve(query: str):
     """Retrieve information related to a query."""
@@ -36,11 +40,6 @@ def retrieve(query: str):
     )
     return serialized, retrieved_docs
 
-from langgraph.graph import MessagesState, StateGraph
-from langchain_core.messages import SystemMessage
-from langgraph.prebuilt import ToolNode
-
-
 # Step 1: Generate an AIMessage that may include a tool-call to be sent.
 def query_or_respond(state: MessagesState):
     """Generate tool call for retrieval or respond."""
@@ -49,10 +48,8 @@ def query_or_respond(state: MessagesState):
     # MessagesState appends messages to state instead of overwriting
     return {"messages": [response]}
 
-
 # Step 2: Execute the retrieval.
 tools = ToolNode([retrieve])
-
 
 # Step 3: Generate a response using the retrieved content.
 def generate(state: MessagesState):
@@ -89,18 +86,18 @@ def generate(state: MessagesState):
     return {"messages": [response]}
 
 
-graph_builder = StateGraph(MessagesState)
-graph_builder.add_node(query_or_respond)
-graph_builder.add_node(tools)
-graph_builder.add_node(generate)
-
-graph_builder.set_entry_point("query_or_respond")
-graph_builder.add_conditional_edges(
+graph = (
+    StateGraph(MessagesState)
+    .add_node(query_or_respond)
+    .add_node(tools)
+    .add_node(generate)
+    .set_entry_point("query_or_respond")
+    .add_conditional_edges(
     "query_or_respond",
-    tools_condition,
-    {END: END, "tools": "tools"},
+        tools_condition,
+        {END: END, "tools": "tools"},
+    )
+    .add_edge("tools", "generate")
+    .add_edge("generate", END)
+    .compile(name="RAG")
 )
-graph_builder.add_edge("tools", "generate")
-graph_builder.add_edge("generate", END)
-
-graph = graph_builder.compile()
