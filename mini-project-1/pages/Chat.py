@@ -3,6 +3,10 @@ import json
 from datetime import datetime
 import uuid
 
+# Import the agent graph and message classes
+from deployed_agent.graph import graph
+from langchain_core.messages import HumanMessage, AIMessage
+
 # Configure page
 st.set_page_config(
     page_title="Chat with Dexa Medica",
@@ -200,13 +204,40 @@ if prompt := st.chat_input("Ask about Dexa Medica..."):
     with st.chat_message("user"):
         st.markdown(prompt)
     
-    # Generate assistant response (placeholder for now)
+    # Call the agent with the user's message
+    try:
+        # Prepare the state for the agent
+        agent_input = {
+            "messages": [HumanMessage(content=prompt)],
+            # Provide required state fields with defaults
+            "search_results": [],
+            "original_query": "",
+            "modified_queries": [],
+            "search_attempts": 0,
+            "max_attempts": 3,
+            "similarity_threshold": 0.7,
+            "answer_found": False,
+        }
+        agent_output = graph.invoke(agent_input)
+        # Find the last AI message in the output
+        ai_response = None
+        for msg in reversed(agent_output["messages"]):
+            if isinstance(msg, AIMessage):
+                ai_response = msg.content
+                break
+            elif isinstance(msg, dict) and msg.get("type") == "ai":
+                ai_response = msg.get("content")
+                break
+        if not ai_response:
+            ai_response = "Maaf, terjadi kesalahan dalam menghasilkan jawaban."
+    except Exception as e:
+        ai_response = f"Terjadi error saat memanggil agent: {str(e)}"
+
     with st.chat_message("assistant"):
-        response = f"Thank you for asking about '{prompt}'. I'm currently being configured to answer questions about Dexa Medica. This is a placeholder response that will be replaced with actual AI-powered responses soon!"
-        st.markdown(response)
-    
+        st.markdown(ai_response)
+
     # Add assistant response
-    st.session_state.messages.append({"role": "assistant", "content": response})
+    st.session_state.messages.append({"role": "assistant", "content": ai_response})
     
     # Save session
     save_current_session()

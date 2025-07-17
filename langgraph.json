@@ -1,7 +1,8 @@
 {
-    "dependencies": ["./deployed_agent"],
+    "dependencies": ["./deployed_agent", "./mini-project-1"],
     "graphs": {
-      "agent": "./deployed_agent/graph.py:graph"
+      "agent": "./deployed_agent/graph.py:graph",
+      "faq_agent": "./mini-project-1/deployed_agent/graph.py:graph"
     },
     "env": ".env"
-  }
+}
