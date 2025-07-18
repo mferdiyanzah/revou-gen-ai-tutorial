@@ -1,0 +1,124 @@
+query,generated_answer,ground_truth,rouge_scores,search_attempts,answer_found,category
+Apa itu Dexa Medica?,"Dexa Medica adalah salah satu perusahaan farmasi terbesar di Indonesia yang didirikan pada tahun 1969 di Palembang oleh Letkol apt. Drs. Rudy Soetikno. Perusahaan ini berfokus pada penelitian, pengembangan, dan produksi obat-obatan berkualitas tinggi untuk meningkatkan kesehatan masyarakat.","Dexa Medica adalah salah satu perusahaan farmasi terbesar di Indonesia yang didirikan
+pada tahun 1969 di Palembang oleh Letkol apt. Drs. Rudy Soetikno. Perusahaan ini
+berfokus pada penelitian, pengembangan, dan produksi obat-obatan berkualitas tinggi
+untuk meningkatkan kesehatan masyarakat.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,Pertanyaan Umum Tentang Dexa Medica
+Apa visi dari Dexa Medica?,"Visi Dexa Medica adalah menjadi perusahaan terkemuka yang berdedikasi memberikan nilai tambah signifikan bagi pelanggan, mitra bisnis, dan pemangku kepentingan melalui
+- perasi efektif, efisien, dan berkelanjutan demi mencapai ""kesehatan bagi semua orang"".","Visi Dexa Medica adalah menjadi perusahaan terkemuka yang berdedikasi memberikan
+nilai tambah signifikan bagi pelanggan, mitra bisnis, dan pemangku kepentingan melalui
+operasi efektif, efisien, dan berkelanjutan demi mencapai ""kesehatan bagi semua orang"".","{'rouge1': 0.96875, 'rouge2': 0.9354838709677419, 'rougeL': 0.96875}",1,True,Pertanyaan Umum Tentang Dexa Medica
+Apa saja nilai inti Dexa Medica?,"Nilai inti Dexa Medica adalah:
+- Strive for Excellence (Keunggulan)
+- Act Professionally (Profesionalisme)
+- Deal with Care (Kepedulian)","Nilai inti Dexa Medica adalah:
+o  Strive for Excellence (Keunggulan)
+o  Act Professionally (Profesionalisme)
+o  Deal with Care (Kepedulian)","{'rouge1': 0.9142857142857143, 'rouge2': 0.7272727272727272, 'rougeL': 0.9142857142857143}",1,True,Pertanyaan Umum Tentang Dexa Medica
+Apa saja kompetensi inti Dexa Medica?,"Kompetensi inti Dexa Medica meliputi:
+- Inovasi
+- Pengelolaan sumber daya
+- Aliansi strategis
+- Manajemen perubahan","Kompetensi inti Dexa Medica meliputi:
+Inovasi
+o  Pengelolaan sumber daya
+o
+o  Aliansi strategis
+o  Manajemen perubahan
+Nama ""Dexa"" berasal dari bahasa Yunani ""δέκα"" yang berarti 10, melambangkan
+kesempurnaan.","{'rouge1': 0.6341463414634146, 'rouge2': 0.46153846153846156, 'rougeL': 0.6341463414634146}",1,True,Pertanyaan Umum Tentang Dexa Medica
+Apa itu OMAI?,OMAI (Obat Modern Asli Indonesia) adalah obat berbasis bahan alam Indonesia yang dikembangkan dengan teknologi modern. Dexa Medica telah memproduksi sebagian besar OMAI yang terdaftar di Indonesia.,"OMAI (Obat Modern Asli Indonesia) adalah obat berbasis bahan alam Indonesia yang
+dikembangkan dengan teknologi modern. Dexa Medica telah memproduksi sebagian
+besar OMAI yang terdaftar di Indonesia.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,Produk & Inovasi
+Apa yang dimaksud dengan OGBdexa?,"OGBdexa adalah lini produk Obat Generik Berlogo yang diproduksi oleh Dexa Medica dan tersedia luas di Indonesia, termasuk dalam Jaminan Kesehatan Nasional (JKN).","OGBdexa adalah lini produk Obat Generik Berlogo yang diproduksi oleh Dexa Medica
+dan tersedia luas di Indonesia, termasuk dalam Jaminan Kesehatan Nasional (JKN).","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,Produk & Inovasi
+Berapa jumlah obat yang telah diluncurkan Dexa Medica dalam 5 tahun terakhir?,"Lebih dari 50 obat baru telah diluncurkan dalam 5 tahun terakhir, dengan portofolio lebih dari 187 obat.","Lebih dari 50 obat baru telah diluncurkan dalam 5 tahun terakhir, dengan portofolio lebih
+dari 187 obat.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,Produk & Inovasi
+Apakah Dexa Medica memproduksi obat herbal?,"Ya, melalui divisi DLBS (Dexa Laboratories of Biomolecular Sciences), Dexa Medica mengembangkan obat herbal berbasis bahan aktif alami Indonesia.","Ya, melalui divisi DLBS (Dexa Laboratories of Biomolecular Sciences), Dexa Medica
+mengembangkan obat herbal berbasis bahan aktif alami Indonesia.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,Produk & Inovasi
+Apa itu DLBS?,DLBS adalah divisi riset Dexa Medica yang fokus pada pengembangan bahan aktif alami dari sumber hayati seperti tumbuhan dan mikroba.,"DLBS adalah divisi riset Dexa Medica yang fokus pada pengembangan bahan aktif alami
+dari sumber hayati seperti tumbuhan dan mikroba.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,Produk & Inovasi
+Di mana lokasi pabrik Dexa Medica?,"Dexa Medica memiliki pabrik di:
+• Palembang (produksi padat dan sefalosporin)
+• Cikarang (produksi API dan pusat riset)
+• Karawang (produksi padat volume tinggi)","Dexa Medica memiliki pabrik di:
+•  Palembang (produksi padat dan sefalosporin)
+•  Cikarang (produksi API dan pusat riset)
+•  Karawang (produksi padat volume tinggi)","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,Fasilitas & Produksi
+Apa itu Dexa Development Center (DDC)?,- DDC adalah pusat penelitian di Cikarang yang menampung hingga 250 ilmuwan dan mampu menghasilkan hingga 30 dosir per tahun.,"DDC adalah pusat penelitian di Cikarang yang menampung hingga 250 ilmuwan dan
+mampu menghasilkan hingga 30 dosir per tahun.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,Fasilitas & Produksi
+Apakah Dexa Medica memiliki sertifikasi CPOB?,"Ya, Dexa Medica adalah satu dari lima perusahaan farmasi yang memiliki sertifikasi Cara Pembuatan Obat yang Baik (CPOB).","Ya, Dexa Medica adalah satu dari lima perusahaan farmasi yang memiliki sertifikasi Cara
+Pembuatan Obat yang Baik (CPOB).","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,Fasilitas & Produksi
+Berapa kapasitas produksi OGB Dexa Medica per tahun?,"Dexa Medica memproduksi lebih dari 1 miliar unit tablet, vial, dan ampul obat setiap tahun.","Dexa Medica memproduksi lebih dari 1 miliar unit tablet, vial, dan ampul obat setiap
+tahun.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,Fasilitas & Produksi
+Bagaimana cara melamar kerja di Dexa Medica?,Anda bisa melamar melalui situs dexagroupcareer.com atau mengirim email ke: recruitment.corporate@dexagroup.com,"Anda bisa melamar melalui situs dexagroupcareer.com atau mengirim email ke:
+recruitment.corporate@dexagroup.com","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,Rekrutmen & Karier
+Apa yang dicari Dexa Medica dalam calon karyawan?,"Profesionalisme, dedikasi, integritas, kemampuan berinovasi, dan semangat kolaborasi.","Profesionalisme, dedikasi, integritas, kemampuan berinovasi, dan semangat kolaborasi.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,Rekrutmen & Karier
+Bagaimana cara menghubungi Dexa Medica untuk informasi umum?,Anda bisa menghubungi melalui email: info@dexagroup.com atau telepon: +62 21 7454-111,"Anda bisa menghubungi melalui email: info@dexagroup.com atau telepon: +62 21 7454-
+111","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,Hubungan dan Komunikasi
+Apakah Dexa Medica aktif di media sosial?,"Ya. Dexa Medica aktif di Instagram, Facebook, YouTube, dan LinkedIn dengan akun resmi “Dexa Group Official”.","Ya. Dexa Medica aktif di Instagram, Facebook, YouTube, dan LinkedIn dengan akun
+resmi “Dexa Group Official”.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,Hubungan dan Komunikasi
+Apakah Dexa Medica hanya beroperasi di Indonesia?,"Tidak. Meskipun berbasis di Indonesia, Dexa Medica memiliki visi dan operasi yang mendukung ekspansi regional dan global.","Tidak. Meskipun berbasis di Indonesia, Dexa Medica memiliki visi dan operasi yang
+mendukung ekspansi regional dan global.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,Lain-lain / Tambahan
+Apa kontribusi Dexa Medica terhadap sistem kesehatan nasional?,"Dexa Medica berkontribusi melalui penyediaan obat generik terjangkau, pengembangan OMAI, serta dukungan terhadap program JKN yang melayani lebih dari 262 juta orang.","Dexa Medica berkontribusi melalui penyediaan obat generik terjangkau, pengembangan
+OMAI, serta dukungan terhadap program JKN yang melayani lebih dari 262 juta orang.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,Lain-lain / Tambahan
+Apa yang membedakan Dexa Medica dari perusahaan farmasi lain di Indonesia?,"Dexa Medica menggabungkan penelitian biomolekuler tingkat lanjut, bahan alami Indonesia, dan standar global dalam setiap tahap produksinya, menjadikannya pemimpin inovasi farmasi lokal.","Dexa Medica menggabungkan penelitian biomolekuler tingkat lanjut, bahan alami
+Indonesia, dan standar global dalam setiap tahap produksinya, menjadikannya pemimpin
+inovasi farmasi lokal.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Apakah Dexa Medica memproduksi vaksin?,"Saat ini Dexa Medica fokus pada obat generik, fitofarmaka, dan obat herbal, namun terbuka untuk kerja sama strategis dalam pengembangan vaksin di masa depan.","Saat ini Dexa Medica fokus pada obat generik, fitofarmaka, dan obat herbal, namun
+terbuka untuk kerja sama strategis dalam pengembangan vaksin di masa depan.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Apakah Dexa Medica menerima kunjungan industri dari mahasiswa?,"Ya, Dexa Medica menerima kunjungan akademik dengan prosedur pendaftaran dan kurasi sesuai kebijakan perusahaan.","Ya, Dexa Medica menerima kunjungan akademik dengan prosedur pendaftaran dan
+kurasi sesuai kebijakan perusahaan.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Bisakah masyarakat umum membeli produk Dexa Medica langsung dari pabrik?,"Tidak. Dexa Medica mendistribusikan produknya melalui apotek, rumah sakit, dan jalur distribusi resmi lainnya untuk memastikan kualitas dan keamanan produk.","Tidak. Dexa Medica mendistribusikan produknya melalui apotek, rumah sakit, dan jalur
+distribusi resmi lainnya untuk memastikan kualitas dan keamanan produk.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Apakah Dexa Medica menyediakan layanan konsultasi medis?,"Dexa Medica tidak menyediakan layanan medis langsung, namun bekerja sama dengan tenaga kesehatan dan institusi untuk mendukung edukasi kesehatan.","Dexa Medica tidak menyediakan layanan medis langsung, namun bekerja sama dengan
+tenaga kesehatan dan institusi untuk mendukung edukasi kesehatan.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Apakah Dexa Medica memiliki program CSR?,"Ya, program tanggung jawab sosial Dexa Medica mencakup edukasi kesehatan, pelatihan petani bahan herbal, dan donasi obat ke wilayah terdampak bencana.","Ya, program tanggung jawab sosial Dexa Medica mencakup edukasi kesehatan, pelatihan
+petani bahan herbal, dan donasi obat ke wilayah terdampak bencana.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Apakah Dexa Medica terdaftar di Bursa Efek Indonesia?,"Tidak, Dexa Medica adalah perusahaan swasta dan belum terdaftar di BEI.","Tidak, Dexa Medica adalah perusahaan swasta dan belum terdaftar di BEI.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Bagaimana Dexa Medica memastikan kualitas bahan baku?,"- Bahan baku dipilih melalui proses pengujian ketat, bersertifikat, dan diawasi oleh tim Quality Control serta Quality Assurance.","Bahan baku dipilih melalui proses pengujian ketat, bersertifikat, dan diawasi oleh tim
+Quality Control serta Quality Assurance.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Apakah Dexa Medica memiliki produk untuk penyakit kronis?,"Ya, Dexa Medica memproduksi berbagai obat untuk penyakit kronis seperti diabetes, hipertensi, dan kolesterol tinggi.","Ya, Dexa Medica memproduksi berbagai obat untuk penyakit kronis seperti diabetes,
+hipertensi, dan kolesterol tinggi.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Apa itu sistem NDDS yang dikembangkan Dexa Medica?,NDDS (New Drug Delivery System) adalah teknologi penghantaran obat yang meningkatkan efektivitas dan kenyamanan penggunaan obat.,"NDDS (New Drug Delivery System) adalah teknologi penghantaran obat yang
+meningkatkan efektivitas dan kenyamanan penggunaan obat.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Apakah Dexa Medica menjual produk di luar negeri?,"Ya, Dexa Medica mengekspor beberapa produknya ke pasar Asia Tenggara, Timur Tengah, dan Afrika.","Ya, Dexa Medica mengekspor beberapa produknya ke pasar Asia Tenggara, Timur
+Tengah, dan Afrika.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Siapa saja mitra strategis Dexa Medica?,"Dexa Medica bermitra dengan berbagai institusi riset, universitas, dan perusahaan farmasi internasional untuk kolaborasi R&D dan distribusi. Calon mitra dapat mengirim proposal resmi ke corporate.communications@dexagroup.com dan akan ditindaklanjuti oleh tim aliansi strategis.","Dexa Medica bermitra dengan berbagai institusi riset, universitas, dan perusahaan farmasi
+internasional untuk kolaborasi R&D dan distribusi.","{'rouge1': 0.6666666666666666, 'rouge2': 0.6538461538461539, 'rougeL': 0.6666666666666666}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Apakah Dexa Medica ramah lingkungan?,"Dexa Medica menerapkan kebijakan produksi hijau, pengelolaan limbah berkelanjutan, dan efisiensi energi di semua fasilitas produksinya.","Dexa Medica menerapkan kebijakan produksi hijau, pengelolaan limbah berkelanjutan,
+dan efisiensi energi di semua fasilitas produksinya.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Bagaimana Dexa Medica menjaga keamanan data pasien dan konsumen?,Dexa Medica menerapkan sistem keamanan informasi sesuai standar ISO dan menjaga kerahasiaan data dengan kebijakan privasi ketat.,"Dexa Medica menerapkan sistem keamanan informasi sesuai standar ISO dan menjaga
+kerahasiaan data dengan kebijakan privasi ketat.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Apakah Dexa Medica terlibat dalam riset kanker atau imunoterapi?,Dexa Medica terus mengeksplorasi pengembangan terapi inovatif termasuk potensi obat herbal untuk mendukung terapi kanker.,"Dexa Medica terus mengeksplorasi pengembangan terapi inovatif termasuk potensi obat
+herbal untuk mendukung terapi kanker.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Bagaimana cara mendapatkan brosur produk Dexa Medica?,- Brosur produk dapat diperoleh melalui distributor resmi atau dengan menghubungi customer service di info@dexagroup.com.,"Brosur produk dapat diperoleh melalui distributor resmi atau dengan menghubungi
+customer service di info@dexagroup.com.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Apakah Dexa Medica memiliki program magang untuk pelajar farmasi?,"Ya, Dexa Medica membuka program internship untuk mahasiswa dari berbagai jurusan seperti farmasi, bioteknologi, dan teknik kimia.","Ya, Dexa Medica membuka program internship untuk mahasiswa dari berbagai jurusan
+seperti farmasi, bioteknologi, dan teknik kimia.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Apakah Dexa Medica menjual suplemen kesehatan?,"Ya, melalui anak perusahaan dan divisi khusus, Dexa Medica memasarkan suplemen berbasis bahan alami Indonesia.","Ya, melalui anak perusahaan dan divisi khusus, Dexa Medica memasarkan suplemen
+berbasis bahan alami Indonesia.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Apa jenis pelatihan yang diberikan kepada karyawan baru Dexa Medica?,"Karyawan baru mengikuti pelatihan orientasi, GMP (Good Manufacturing Practice), dan pengembangan soft skill serta teknis.","Karyawan baru mengikuti pelatihan orientasi, GMP (Good Manufacturing Practice), dan
+pengembangan soft skill serta teknis.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Apakah Dexa Medica pernah menerima penghargaan industri farmasi?,"Ya, Dexa Medica telah menerima berbagai penghargaan nasional atas kontribusinya dalam pengembangan obat lokal dan inovasi farmasi.","Ya, Dexa Medica telah menerima berbagai penghargaan nasional atas kontribusinya
+dalam pengembangan obat lokal dan inovasi farmasi.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Apakah Dexa Medica mendukung UMKM?,Dexa Medica bekerja sama dengan petani lokal dan UMKM dalam penyediaan bahan baku herbal berkualitas tinggi.,"Dexa Medica bekerja sama dengan petani lokal dan UMKM dalam penyediaan bahan
+baku herbal berkualitas tinggi.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Bagaimana prosedur kerja sama bisnis dengan Dexa Medica?,Calon mitra dapat mengirim proposal resmi ke corporate.communications@dexagroup.com dan akan ditindaklanjuti oleh tim aliansi strategis.,"Calon mitra dapat mengirim proposal resmi ke
+corporate.communications@dexagroup.com dan akan ditindaklanjuti oleh tim aliansi
+strategis.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Apakah Dexa Medica memiliki call center 24 jam?,"Saat ini Dexa Medica tidak memiliki call center 24 jam, namun pertanyaan bisa dikirimkan melalui email dan akan dibalas dalam waktu kerja.","Saat ini Dexa Medica tidak memiliki call center 24 jam, namun pertanyaan bisa
+dikirimkan melalui email dan akan dibalas dalam waktu kerja.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Apa jenis produk yang diproduksi di pabrik Karawang?,Pabrik Beta Pharmacon di Karawang memproduksi obat padat dalam volume tinggi untuk kebutuhan nasional dan ekspor.,"Pabrik Beta Pharmacon di Karawang memproduksi obat padat dalam volume tinggi
+untuk kebutuhan nasional dan ekspor.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Apakah Dexa Medica menggunakan teknologi AI dalam penelitiannya?,Dexa Medica mulai mengintegrasikan kecerdasan buatan untuk mempercepat analisis data dalam penelitian farmasi dan pengembangan obat.,"Dexa Medica mulai mengintegrasikan kecerdasan buatan untuk mempercepat analisis
+data dalam penelitian farmasi dan pengembangan obat.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Bagaimana Dexa Medica menangani keluhan konsumen?,"Keluhan dapat diajukan melalui formulir kontak atau email resmi. Setiap keluhan
+ditindaklanjuti sesuai prosedur layanan pelanggan.","Keluhan dapat diajukan melalui formulir kontak atau email resmi. Setiap keluhan
+ditindaklanjuti sesuai prosedur layanan pelanggan.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Apakah produk Dexa Medica aman untuk ibu hamil?,"Beberapa produk Dexa aman untuk ibu hamil, namun harus dikonsumsi sesuai anjuran dokter.","Beberapa produk Dexa aman untuk ibu hamil, namun harus dikonsumsi sesuai anjuran
+dokter.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Apakah Dexa Medica melakukan edukasi publik?,"Ya, Dexa Medica rutin mengadakan webinar, kampanye kesehatan, dan edukasi melalui media sosial.","Ya, Dexa Medica rutin mengadakan webinar, kampanye kesehatan, dan edukasi melalui
+media sosial.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Apakah Dexa Medica memiliki produk OTC (over-the-counter)?,"Ya, Dexa Medica memproduksi beberapa produk yang dijual bebas tanpa resep untuk pengobatan ringan seperti demam dan flu.","Ya, Dexa Medica memproduksi beberapa produk yang dijual bebas tanpa resep untuk
+pengobatan ringan seperti demam dan flu.","{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)
+Apa motto Dexa Medica?,Motto Dexa Medica adalah: “Pemanfaatan keahlian untuk mempromosikan kesehatan.”,Motto Dexa Medica adalah: “Pemanfaatan keahlian untuk mempromosikan kesehatan.”,"{'rouge1': 1.0, 'rouge2': 1.0, 'rougeL': 1.0}",1,True,FAQ Tambahan Dexa Medica (Pertanyaan 21–50)

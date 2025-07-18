@@ -37,7 +37,6 @@ def prepare_chunks_for_db(chunks: list, embedding_generator: EmbeddingGenerator,
         text_for_embedding = prepare_text_for_embedding(
             question=chunk['question'],
             answer=chunk['answer'],
-            content=chunk['content']
         )
         
         # Get embedding

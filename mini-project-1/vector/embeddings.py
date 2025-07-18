@@ -13,20 +13,38 @@ class EmbeddingGenerator:
         
     def get_embedding(self, text: str) -> List[float]:
         """Get embedding from OpenAI API"""
-        response = self.client.embeddings.create(
-            model="text-embedding-3-small",
-            input=text
-        )
-        return response.data[0].embedding
+        try:
+            print(f"Getting embedding for text: {text[:100]}...")
+            response = self.client.embeddings.create(
+                model="text-embedding-3-small",
+                input=text
+            )
+            embedding = response.data[0].embedding
+            print(f"Successfully generated embedding of length {len(embedding)}")
+            return embedding
+        except Exception as e:
+            print(f"Error generating embedding: {str(e)}")
+            import traceback
+            traceback.print_exc()
+            raise  # Re-raise to handle in caller
     
     def get_batch_embeddings(self, texts: List[str]) -> List[List[float]]:
         """Get embeddings for multiple texts in one API call"""
-        response = self.client.embeddings.create(
-            model="text-embedding-3-small",
-            input=texts
-        )
-        return [item.embedding for item in response.data]
+        try:
+            print(f"Getting batch embeddings for {len(texts)} texts...")
+            response = self.client.embeddings.create(
+                model="text-embedding-3-small",
+                input=texts
+            )
+            embeddings = [item.embedding for item in response.data]
+            print(f"Successfully generated {len(embeddings)} embeddings")
+            return embeddings
+        except Exception as e:
+            print(f"Error generating batch embeddings: {str(e)}")
+            import traceback
+            traceback.print_exc()
+            raise  # Re-raise to handle in caller
 
-def prepare_text_for_embedding(question: str, answer: str, content: str) -> str:
-    """Prepare text for embedding by combining question, answer, and content"""
-    return f"Question: {question}\nAnswer: {answer}\nContent: {content}" 
+def prepare_text_for_embedding(question: str, answer: str) -> str:
+    """Prepare text for embedding by combining question, answer"""
+    return f"Question: {question.strip()}\nAnswer: {answer.strip()}" 

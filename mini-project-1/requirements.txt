@@ -8,4 +8,6 @@ openai>=1.0.0
 python-dotenv>=1.0.0
 pdfminer.six==20200517
 numpy>=1.24.0
-urllib3>=1.26.0 
+urllib3>=1.26.0
+langsmith>=0.1.0
+rouge-score==0.1.2 

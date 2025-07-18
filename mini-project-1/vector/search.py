@@ -24,38 +24,80 @@ class SemanticSearcher:
             - similarity: The similarity score (0-1, higher is better)
             - category: The document category
         """
-        # Generate embedding for the query
-        query_embedding = self.embedding_generator.get_embedding(query)
-        
-        # Search for similar chunks
-        results = search_similar_chunks(self.conn, query_embedding, limit)
-        
-        # Process results
-        processed_results = []
-        for filename, chunk_text, similarity in results:
-            # Parse the chunk text
-            parts = chunk_text.split('\n')
-            question = ''
-            answer = ''
-            content = chunk_text
-            category = filename.split(' - ')[0] if ' - ' in filename else 'Unknown'
+        try:
+            # Generate embedding for the query
+            print(f"Generating embedding for query: {query}")
+            query_embedding = self.embedding_generator.get_embedding(query)
             
-            # Extract question and answer if available
-            for part in parts:
-                if part.startswith('Question: '):
-                    question = part.replace('Question: ', '')
-                elif part.startswith('Answer: '):
-                    answer = part.replace('Answer: ', '')
+            # Search for similar chunks
+            print("Searching for similar chunks...")
+            results = search_similar_chunks(self.conn, query_embedding, limit)
+            print(f"Found {len(results)} results from database")
             
-            processed_results.append({
-                'question': question,
-                'answer': answer,
-                'content': content,
-                'similarity': float(similarity),
-                'category': category
-            })
-        
-        return processed_results
+            # Process results
+            processed_results = []
+            for filename, chunk_text, similarity in results:
+                print(f"Processing result from {filename} with similarity {similarity}")
+                
+                # Parse the chunk text
+                parts = chunk_text.split('\n')
+                question = ''
+                answer = ''
+                content = chunk_text
+                category = filename.split(' - ')[0] if ' - ' in filename else 'Unknown'
+                
+                # Extract question and answer if available
+                question_found = False
+                answer_found = False
+                answer_lines = []
+                
+                for i, part in enumerate(parts):
+                    if part.startswith('Question: '):
+                        question = part.replace('Question: ', '')
+                        question_found = True
+                    elif part.startswith('Answer: '):
+                        answer_found = True
+                        # Start collecting answer from this line
+                        answer_lines.append(part.replace('Answer: ', ''))
+                        # Continue collecting subsequent lines until we hit another section or end
+                        for j in range(i + 1, len(parts)):
+                            next_part = parts[j].strip()
+                            # Stop if we hit another Question or if we reach content that looks like metadata
+                            if (next_part.startswith('Question: ') or 
+                                next_part.startswith('Nama "Dexa"') or
+                                next_part.startswith('Source:') or
+                                next_part.startswith('Category:')):
+                                break
+                            # Include the line if it's not empty or if it's a bullet point
+                            if next_part or (j < len(parts) - 1 and parts[j + 1].strip().startswith('o')):
+                                answer_lines.append(parts[j])
+                        break
+                
+                # Join answer lines and clean up
+                if answer_lines:
+                    answer = '\n'.join(answer_lines).strip()
+                    # Clean up any trailing metadata
+                    if 'Nama "Dexa"' in answer:
+                        answer = answer.split('Nama "Dexa"')[0].strip()
+                else:
+                    answer = ''
+                
+                processed_result = {
+                    'question': question,
+                    'answer': answer,
+                    'content': content,
+                    'similarity': float(similarity),
+                    'category': category
+                }
+                processed_results.append(processed_result)
+                print(f"Processed result: Q: {question[:50]}... A: {answer[:50]}...")
+            
+            return processed_results
+        except Exception as e:
+            print(f"Error in semantic search: {str(e)}")
+            import traceback
+            traceback.print_exc()
+            return []
 
 def format_search_result(result: dict) -> str:
     """Format a search result for display"""

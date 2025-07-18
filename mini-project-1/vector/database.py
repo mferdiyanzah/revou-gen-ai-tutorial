@@ -153,11 +153,14 @@ def search_similar_chunks(
         SELECT filename, chunk_text, 1 - (embedding <=> %s::vector) as similarity
         FROM documents
         WHERE embedding IS NOT NULL
-        ORDER BY embedding <=> %s::vector
+        ORDER BY similarity DESC
         LIMIT %s
-        """, (query_embedding, query_embedding, limit))
+        """, (query_embedding, limit))  # Fixed: removed duplicate parameter
         
-        return cur.fetchall()
+        results = cur.fetchall()
+        print('------------------------------------')
+        print('Search results:', results)
+        return results
 
 def get_all_chunks(conn: connection, filename: Optional[str] = None) -> List[Tuple[str, int, str]]:
     """

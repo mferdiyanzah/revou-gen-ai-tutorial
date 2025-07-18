@@ -215,10 +215,14 @@ if prompt := st.chat_input("Ask about Dexa Medica..."):
             "modified_queries": [],
             "search_attempts": 0,
             "max_attempts": 3,
-            "similarity_threshold": 0.7,
+            "similarity_threshold": 0.6,
             "answer_found": False,
         }
-        agent_output = graph.invoke(agent_input)
+        print(agent_input, "agent input")
+        print(st.session_state.messages, "messages")
+        # Add configuration for recursion limit
+        config = {"recursion_limit": 50}  # Increase from default 25 to 50
+        agent_output = graph.invoke(agent_input, config=config)
         # Find the last AI message in the output
         ai_response = None
         for msg in reversed(agent_output["messages"]):

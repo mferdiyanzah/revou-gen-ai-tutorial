@@ -1,0 +1,82 @@
+{
+  "total_queries": 49,
+  "avg_search_attempts": 1.0,
+  "answers_found_rate": 1.0,
+  "rouge_scores": {
+    "rouge1": 0.9833438514778734,
+    "rouge2": 0.9750641064005119,
+    "rougeL": 0.9833438514778734
+  },
+  "category_metrics": {
+    "Pertanyaan Umum Tentang Dexa Medica": {
+      "total_queries": 4,
+      "avg_search_attempts": 1.0,
+      "answers_found_rate": 1.0,
+      "rouge_scores": {
+        "rouge1": 0.8792955139372822,
+        "rouge2": 0.7810737649447327,
+        "rougeL": 0.8792955139372822
+      }
+    },
+    "Produk & Inovasi": {
+      "total_queries": 5,
+      "avg_search_attempts": 1.0,
+      "answers_found_rate": 1.0,
+      "rouge_scores": {
+        "rouge1": 1.0,
+        "rouge2": 1.0,
+        "rougeL": 1.0
+      }
+    },
+    "Fasilitas & Produksi": {
+      "total_queries": 4,
+      "avg_search_attempts": 1.0,
+      "answers_found_rate": 1.0,
+      "rouge_scores": {
+        "rouge1": 1.0,
+        "rouge2": 1.0,
+        "rougeL": 1.0
+      }
+    },
+    "Rekrutmen & Karier": {
+      "total_queries": 2,
+      "avg_search_attempts": 1.0,
+      "answers_found_rate": 1.0,
+      "rouge_scores": {
+        "rouge1": 1.0,
+        "rouge2": 1.0,
+        "rougeL": 1.0
+      }
+    },
+    "Hubungan dan Komunikasi": {
+      "total_queries": 2,
+      "avg_search_attempts": 1.0,
+      "answers_found_rate": 1.0,
+      "rouge_scores": {
+        "rouge1": 1.0,
+        "rouge2": 1.0,
+        "rougeL": 1.0
+      }
+    },
+    "Lain-lain / Tambahan": {
+      "total_queries": 2,
+      "avg_search_attempts": 1.0,
+      "answers_found_rate": 1.0,
+      "rouge_scores": {
+        "rouge1": 1.0,
+        "rouge2": 1.0,
+        "rougeL": 1.0
+      }
+    },
+    "FAQ Tambahan Dexa Medica (Pertanyaan 21\u201350)": {
+      "total_queries": 30,
+      "avg_search_attempts": 1.0,
+      "answers_found_rate": 1.0,
+      "rouge_scores": {
+        "rouge1": 0.9888888888888888,
+        "rouge2": 0.9884615384615384,
+        "rougeL": 0.9888888888888888
+      }
+    }
+  }
+}
