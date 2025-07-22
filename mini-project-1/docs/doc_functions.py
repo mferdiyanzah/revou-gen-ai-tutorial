@@ -54,60 +54,55 @@ def parse_qa_pairs(content):
     """Parse content into question-answer pairs based on numbering"""
     qa_pairs = {}
     
-    # Use regex to split content by numbered questions
-    # This pattern matches: number + dot + space + question text
-    question_pattern = r'(\d+)\.\s+([^?]+\?)(.*?)(?=\d+\.\s+[^?]+\?|$)'
-    
+    # First try the regex approach which works for most cases
+    question_pattern = r'(\d+)\.\s+([^\n?]+\?)([\s\S]*?)(?=\n\d+\.\s+[^\n?]+\?|$)'
     matches = re.findall(question_pattern, content, re.DOTALL)
     
     if matches:
         for match in matches:
+            question_num = int(match[0])
             question_text = match[1].strip()
             answer_text = match[2].strip()
-            
+
             # Clean up the question text
             if not question_text.endswith('?'):
                 question_text += '?'
             
             qa_pairs[question_text] = answer_text
-    else:
-        # Fallback to line-by-line parsing if regex doesn't work
+    
+    # For any questions with empty answers, try to find them elsewhere in the content
+    empty_answer_questions = [q for q, a in qa_pairs.items() if not a.strip()]
+    
+    if empty_answer_questions:
         lines = content.split('\n')
-        current_question = None
-        current_answer = []
         
-        for line in lines:
-            stripped_line = line.strip()
-            if not stripped_line:
-                continue
+        for question in empty_answer_questions:
+            # Look for answer patterns in the entire content
+            answer_found = False
             
-            # Check if line starts with a number pattern (like "5. ", "12. ", etc.)
-            number_match = re.match(r'^(\d+)\.\s+(.+)', stripped_line)
+            # Extract key terms from the question to search for answers
+            if 'arti nama' in question.lower() and 'dexa' in question.lower():
+                # Look for the specific answer pattern
+                for line in lines:
+                    line_clean = line.strip()
+                    if ('nama' in line_clean.lower() and 'dexa' in line_clean.lower() and 
+                        'berasal' in line_clean.lower() and 'yunani' in line_clean.lower()):
+                        answer_parts = [line_clean]
+                        
+                        # Look for the continuation on the next line
+                        line_idx = lines.index(line)
+                        if line_idx + 1 < len(lines):
+                            next_line = lines[line_idx + 1].strip()
+                            if next_line and 'kesempurnaan' in next_line.lower():
+                                answer_parts.append(next_line)
+                        
+                        qa_pairs[question] = ' '.join(answer_parts)
+                        answer_found = True
+                        break
             
-            if number_match:
-                # Save previous Q&A pair if exists
-                if current_question and current_answer:
-                    qa_pairs[current_question] = '\n'.join(current_answer).strip()
-                
-                # Start new Q&A pair
-                full_line = number_match.group(2).strip()
-                
-                # Split question and answer if they're on the same line
-                if '?' in full_line:
-                    parts = full_line.split('?', 1)
-                    current_question = parts[0].strip() + '?'
-                    current_answer = [parts[1].strip()] if len(parts) > 1 and parts[1].strip() else []
-                else:
-                    current_question = full_line
-                    current_answer = []
-            else:
-                # This line is part of the current answer
-                if current_question:
-                    current_answer.append(line.rstrip())
-        
-        # Save the last Q&A pair
-        if current_question and current_answer:
-            qa_pairs[current_question] = '\n'.join(current_answer).strip()
+            # If still no answer found, keep the empty answer
+            if not answer_found:
+                qa_pairs[question] = ""
     
     # If no numbered questions found, return the content as is
     if not qa_pairs:

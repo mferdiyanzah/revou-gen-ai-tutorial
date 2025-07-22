@@ -158,8 +158,6 @@ def search_similar_chunks(
         """, (query_embedding, limit))  # Fixed: removed duplicate parameter
         
         results = cur.fetchall()
-        print('------------------------------------')
-        print('Search results:', results)
         return results
 
 def get_all_chunks(conn: connection, filename: Optional[str] = None) -> List[Tuple[str, int, str]]:

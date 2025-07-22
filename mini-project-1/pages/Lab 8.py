@@ -4,7 +4,7 @@ from langchain_core.messages import AIMessageChunk, HumanMessage, AIMessage, Sys
 import agents.graph as gr
 import agents.DBQNA as DBQNA
 import agents.RAG as RAG
-from langchain_community.document_loaders import PyPDFLoader
+import agents.Technical as Technical
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langgraph.graph import MessagesState, StateGraph, START, END
 from langgraph.types import Command
@@ -24,7 +24,8 @@ def get_stream():
 
 st.write_stream(get_stream)
 
-DB_PATH = os.environ['DB_PATH']
+# Set default DB_PATH if not provided in environment
+DB_PATH = os.environ.get('DB_PATH', '../sqlite/chinook.db')
 
 from langchain.chat_models import init_chat_model
 model = init_chat_model("gpt-4.1-mini", model_provider= "openai")
@@ -33,37 +34,36 @@ class BestAgent(BaseModel):
     agent_name: str = Field(description = "The best agent to handle specific request from users.")
 
 class SupervisorState(MessagesState):
-    user_question : str 
+    user_question: str 
 
-def supervisor(state: SupervisorState) -> Command[Literal["DBQNA", "RAG", END]]:
+def supervisor(state: SupervisorState) -> Command[Literal["DBQNA", "RAG", "Technical"]]:
     last_message = state["messages"][-1]
     instruction = [SystemMessage(content=f"""You receive the following question from users. Decide which agent is the most suitable for completing the task.
                                     Delegate to DBQNA agent if users ask a question that can be answered by data inside a database. 
-                                    Delegate to RAG agent if users ask a question about Dexa Medica. 
-                                    End the conversation after you receive answer from agents.
+                                    Delegate to RAG agent if users ask a question about Dexa Medica company information or general information.
+                                    Delegate to Technical agent if users ask technical questions about Dexa Medica FAQ, products, or services.
                                  """)]
     model_with_structure = model.with_structured_output(BestAgent)
     response = model_with_structure.invoke(instruction + [last_message])
     return Command(
         update= {'user_question': last_message.content},
-        goto=response.agent_name
+        goto=getattr(response, 'agent_name', 'RAG')
     )
 
-def callRAG(state: SupervisorState) -> Command[Literal['supervisor']]:
+def callRAG(state: SupervisorState):
     prompt = state['user_question']
     response = RAG.graph.invoke({"messages":HumanMessage(content=prompt)})
-    return Command(
-        goto=END,
-        update={"messages": response['messages'][-1]}
-    )
+    return {"messages": [response['messages'][-1]]}
 
-def callDBQNA(state: SupervisorState) -> Command[Literal['supervisor']]:
+def callDBQNA(state: SupervisorState):
     prompt = state['user_question']
     response = DBQNA.graph.invoke({"messages":HumanMessage(content=prompt), "db_name": DB_PATH, "user_question" : prompt})
-    return Command(
-        goto=END,
-        update={"messages": response['messages'][-1]}
-    )
+    return {"messages": [response['messages'][-1]]}
+
+def callTechnical(state: SupervisorState):
+    prompt = state['user_question']
+    response = Technical.graph.invoke({"messages":HumanMessage(content=prompt)})
+    return {"messages": [response['messages'][-1]]}
 
 # memory = InMemorySaver()
 supervisor_agent = (
@@ -71,7 +71,11 @@ supervisor_agent = (
     .add_node(supervisor)
     .add_node("RAG", callRAG)
     .add_node("DBQNA", callDBQNA)
+    .add_node("Technical", callTechnical)
     .add_edge(START, "supervisor")
+    .add_edge("RAG", END)
+    .add_edge("DBQNA", END)
+    .add_edge("Technical", END)
     .compile(name= "supervisor")
 )
 
@@ -87,21 +91,26 @@ if prompt:
         status_placeholder.status(label="Process Start")
         state = "Process Start"
         for chunk, metadata in supervisor_agent.stream({"messages":HumanMessage(content=prompt)}, stream_mode="messages"):
-            if metadata['langgraph_node'] != state:
-                status_placeholder.status(label=metadata['langgraph_node'])
-                state = metadata['langgraph_node']
+            # Access metadata as a dictionary
+            node_name = metadata.get('langgraph_node', '') if isinstance(metadata, dict) else ''
+            if node_name != state:
+                status_placeholder.status(label=node_name)
+                state = node_name
                 final_answer = "" 
             
-            if metadata['langgraph_node'] == "final_answer":
-                final_answer += chunk.content
-                answer_placeholder.markdown(final_answer)
+            if node_name == "final_answer":
+                if hasattr(chunk, 'content'):
+                    final_answer += str(getattr(chunk, 'content', ''))
+                    answer_placeholder.markdown(final_answer)
             
-            if metadata['langgraph_node'] == "generate":
-                final_answer += chunk.content
-                answer_placeholder.markdown(final_answer)
+            if node_name == "generate":
+                if hasattr(chunk, 'content'):
+                    final_answer += str(getattr(chunk, 'content', ''))
+                    answer_placeholder.markdown(final_answer)
         
         status_placeholder.status(label="Complete", state='complete')
 
 # DBQNA.graph.stream({"messages":HumanMessage(content=prompt), "db_name": DB_PATH, "user_question" : prompt}, stream_mode="messages")
 # RAG.graph.stream({"messages":HumanMessage(content=prompt)}, stream_mode="messages")
+# Technical.graph.stream({"messages":HumanMessage(content=prompt)}, stream_mode="messages")
             
